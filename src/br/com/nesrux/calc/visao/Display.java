@@ -27,7 +27,7 @@ public class Display extends JPanel  implements MemoriaObservador{
 	
 	@Override
 	public void valorAlterado(String novoValor) {
-		
+		System.out.println("a");
 	}
 
 }
