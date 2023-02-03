@@ -16,7 +16,7 @@ public class Calculadora extends JFrame {
 		setVisible(true);
 
 		Display display = new Display();
-		display.setPreferredSize(new Dimension(233, 60));
+		display.setPreferredSize(new Dimension(231, 60));
 		add(display, BorderLayout.NORTH);
 		
 		Teclado teclado = new Teclado();
