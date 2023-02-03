@@ -1,5 +1,8 @@
 package br.com.nesrux.calc.visao;
 
-public class Botao {
+import javax.swing.JButton;
+
+@SuppressWarnings("serial")
+public class Botao  extends JButton{
 
 }

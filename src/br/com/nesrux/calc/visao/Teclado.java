@@ -1,5 +1,13 @@
 package br.com.nesrux.calc.visao;
 
-public class Teclado {
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class Teclado extends JPanel{
+	public Teclado() {
+		setBackground(Color.RED);
+	}
 
 }

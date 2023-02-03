@@ -1,5 +1,13 @@
 package br.com.nesrux.calc.visao;
 
-public class Display {
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class Display extends JPanel {
+	public Display() {
+		setBackground(Color.green);
+	}
 
 }
