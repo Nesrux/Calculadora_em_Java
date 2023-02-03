@@ -17,11 +17,14 @@ public class Teclado extends JPanel {
 		GridBagConstraints c = new GridBagConstraints();
 
 		setLayout(layout);
+		c.weighty = 1;
+		c.weightx = 1;
+		c.fill = GridBagConstraints.BOTH;
 
 		// Linha 1
+		c.gridwidth = 3;
 		addBotao("AC", CINZA_ESCURO, c, 0, 0);
-		addBotao("+/-", CINZA_ESCURO, c, 1, 0);
-		addBotao("%", CINZA_ESCURO, c, 2, 0);
+		c.gridwidth = 1;
 		addBotao("/", LARANJA, c, 3, 0);
 
 		// Linha 2
@@ -43,8 +46,9 @@ public class Teclado extends JPanel {
 		addBotao("+", LARANJA, c, 3, 3);
 
 		// Linha 5
+		c.gridwidth = 2;
 		addBotao("0", CINZA_CLARO, c, 0, 4);
-		addBotao("0", CINZA_CLARO, c, 1, 4);
+		c.gridwidth = 1;
 		addBotao(",", CINZA_CLARO, c, 2, 4);
 		addBotao("=", LARANJA, c, 3, 4);
 	}
