@@ -60,7 +60,7 @@ public class Memoria {
 	}
 
 	private String obterResultadoOperacao() {
-		if (ultimaOperacao == null) {
+		if (ultimaOperacao == null || ultimaOperacao == TipoComando.IGUAL) {
 			return textoAtual;
 		}
 		double numeroBuffer = Double.parseDouble(textoBuffer.replace(",", "."));
