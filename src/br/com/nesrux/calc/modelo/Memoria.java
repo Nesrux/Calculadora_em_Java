@@ -50,9 +50,21 @@ public class Memoria {
 			Integer.parseInt(valor);
 			return TipoComando.NUMERO;
 		} catch (NumberFormatException e) {
-			//Quando nao for número cai aqui
-			if("AC".equals(valor)) {
+			// Quando nao for número cai aqui
+			if ("AC".equals(valor)) {
 				return TipoComando.ZERAR;
+			} else if ("/".equals(valor)) {
+				return TipoComando.DIV;
+			} else if ("*".equals(valor)) {
+				return TipoComando.MULT;
+			} else if ("+".equals(valor)) {
+				return TipoComando.SOMA;
+			} else if ("/-".equals(valor)) {
+				return TipoComando.SUB;
+			} else if ("=".equals(valor)) {
+				return TipoComando.IGUAL;
+			} else if (",".equals(valor)) {
+				return TipoComando.VIRGULA;
 			}
 		}
 
