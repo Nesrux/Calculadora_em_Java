@@ -59,7 +59,7 @@ public class Memoria {
 				return TipoComando.MULT;
 			} else if ("+".equals(valor)) {
 				return TipoComando.SOMA;
-			} else if ("/-".equals(valor)) {
+			} else if ("-".equals(valor)) {
 				return TipoComando.SUB;
 			} else if ("=".equals(valor)) {
 				return TipoComando.IGUAL;
