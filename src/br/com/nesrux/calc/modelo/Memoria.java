@@ -6,7 +6,7 @@ import java.util.List;
 public class Memoria {
 
 	private enum TipoComando {
-		ZERAR, NUMERO, DIV, MULT, SUB, SOMA, IGUAL, VIRGULA
+		ZERAR, SINAL, NUMERO, DIV, MULT, SUB, SOMA, IGUAL, VIRGULA
 	};
 
 	private static final Memoria instancia = new Memoria();
@@ -44,15 +44,17 @@ public class Memoria {
 			textoBuffer = "";
 			substituir = false;
 			ultimaOperacao = null;
+		} else if (tipoComando == TipoComando.SINAL && textoAtual.contains("-")) {
+			textoAtual = textoAtual.substring(1);
+		} else if (tipoComando == TipoComando.SINAL && !textoAtual.contains("-")) {
+			textoAtual = "-" + textoAtual;
 		} else if (tipoComando == TipoComando.NUMERO || tipoComando == TipoComando.VIRGULA) {
 			textoAtual = substituir ? texto : textoAtual + texto;
 			substituir = false;
 		} else {
 			substituir = true;
 			textoAtual = obterResultadoOperacao();
-
 			textoBuffer = textoAtual;
-
 			ultimaOperacao = tipoComando;
 		}
 
@@ -107,6 +109,8 @@ public class Memoria {
 				return TipoComando.IGUAL;
 			} else if (",".equals(texto) && !textoAtual.contains(",")) {
 				return TipoComando.VIRGULA;
+			} else if ("±".equals(texto)) {
+				return TipoComando.SINAL;
 			}
 		}
 
