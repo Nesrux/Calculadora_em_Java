@@ -13,7 +13,10 @@ public class Memoria {
 
 	private final List<MemoriaObservador> observadores = new ArrayList<>();
 
+	private TipoComando ultimaOperacao = null;
+	private boolean substituir = false;
 	private String textoAtual = "";
+	private String textoBuffer = "";
 
 	private Memoria() {
 	}
@@ -30,40 +33,48 @@ public class Memoria {
 		return textoAtual.isEmpty() ? "0" : textoAtual;
 	}
 
-	public void processarComando(String valor) {
-		TipoComando tipoComando = detectarTipoComando(valor);
-		System.out.println(tipoComando);
+	public void processarComando(String texto) {
 
-		if ("AC".equals(valor)) {
+		TipoComando tipoComando = detectarTipoComando(texto);
+
+		if (tipoComando == null) {
+			return;
+		} else if (tipoComando == TipoComando.ZERAR) {
 			textoAtual = "";
-		} else {
-			textoAtual += valor;
-			observadores.forEach(o -> o.valorAlterado(textoAtual));
+			textoBuffer = "";
+			substituir = false;
+			ultimaOperacao = null;
+		} else if (tipoComando == TipoComando.NUMERO || tipoComando == TipoComando.VIRGULA) {
+			textoAtual = substituir ? texto : textoAtual + texto;
+			substituir = false;
 		}
+		
+			observadores.forEach(o -> o.valorAlterado(textoAtual));
+		
 	}
 
-	private TipoComando detectarTipoComando(String valor) {
-		if (textoAtual.isEmpty() && valor == "0") {
+	private TipoComando detectarTipoComando(String texto) {
+		if (textoAtual.isEmpty() && texto == "0") {
 			return null;
 		}
 		try {
-			Integer.parseInt(valor);
+			Integer.parseInt(texto);
 			return TipoComando.NUMERO;
 		} catch (NumberFormatException e) {
 			// Quando nao for número cai aqui
-			if ("AC".equals(valor)) {
+			if ("AC".equals(texto)) {
 				return TipoComando.ZERAR;
-			} else if ("/".equals(valor)) {
+			} else if ("/".equals(texto)) {
 				return TipoComando.DIV;
-			} else if ("*".equals(valor)) {
+			} else if ("*".equals(texto)) {
 				return TipoComando.MULT;
-			} else if ("+".equals(valor)) {
+			} else if ("+".equals(texto)) {
 				return TipoComando.SOMA;
-			} else if ("-".equals(valor)) {
+			} else if ("-".equals(texto)) {
 				return TipoComando.SUB;
-			} else if ("=".equals(valor)) {
+			} else if ("=".equals(texto)) {
 				return TipoComando.IGUAL;
-			} else if (",".equals(valor)) {
+			} else if (",".equals(texto) && !textoAtual.contains(",")) {
 				return TipoComando.VIRGULA;
 			}
 		}
