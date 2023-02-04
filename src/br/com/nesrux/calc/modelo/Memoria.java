@@ -71,15 +71,17 @@ public class Memoria {
 
 		if (ultimaOperacao == TipoComando.SOMA) {
 			resultado = numeroBuffer + numeroAtual;
-		}else if (ultimaOperacao == TipoComando.SUB) {
+		} else if (ultimaOperacao == TipoComando.SUB) {
 			resultado = numeroBuffer - numeroAtual;
-		}else if (ultimaOperacao == TipoComando.MULT) {
+		} else if (ultimaOperacao == TipoComando.MULT) {
 			resultado = numeroBuffer * numeroAtual;
-		}else if (ultimaOperacao == TipoComando.DIV) {
+		} else if (ultimaOperacao == TipoComando.DIV) {
 			resultado = numeroBuffer / numeroAtual;
 		}
 
-		return textoAtual;
+		String resultadoString = Double.toString(resultado).replace(".", ",");
+		boolean inteiro = resultadoString.endsWith(",0");
+		return inteiro ? resultadoString.replace(",0", "") : resultadoString;
 	}
 
 	private TipoComando detectarTipoComando(String texto) {
