@@ -41,9 +41,9 @@ $ git clone https://github.com/Nesrux/Calculadora_em_Java.git
 
 Depois em sua IDE de preferencia, de Start no arquivo, que as dependencias vão ser baixadas automaticamente e a aplicação sera iniciada!
 
-## 📫 Contribuindo para o JmFood
+## 📫 Contribuindo para a calculadora
 <!---Se o seu README for longo ou se você tiver algum processo ou etapas específicas que deseja que os contribuidores sigam, considere a criação de um arquivo CONTRIBUTING.md separado--->
-Para contribuir com JmFood, siga estas etapas:
+Para contribuir com calculadora, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
