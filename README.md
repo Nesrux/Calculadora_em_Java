@@ -14,10 +14,14 @@
 
 O projeto ja foi completo !!!
 
-- [x] Criar o projeto e adicionar dependencias.
+- [x] Criar o projeto
 - [x] criar classes de deminio.
-- [x] criar interfaces com JpaRepository.
-- [x] fazer o crud da API.
+- [x] criar interfaces
+- [x] criar a logica da calculadora
+- [x] criar a parte visual da calculadora
+- [x] implementações finais
+- [x] projeto completo!
+  
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -32,7 +36,7 @@ Para instalar a calculadora, siga estas etapas:
 
 Git:
 ```
-$ git clone https://github.com/Nesrux/JmFood.git
+$ git clone https://github.com/Nesrux/Calculadora_em_Java.git
 ```
 
 Depois em sua IDE de preferencia, de Start no arquivo, que as dependencias vão ser baixadas automaticamente e a aplicação sera iniciada!
